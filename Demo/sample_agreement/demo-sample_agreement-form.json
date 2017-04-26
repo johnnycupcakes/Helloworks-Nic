@@ -1,0 +1,71 @@
+{
+	"settings": {
+		"preview": false
+	},
+	"schema": {
+		"version": "1.0.1",
+		"type": "form"
+	},
+	"name": "sample_agreement",
+	"macros": {},
+	"id": "sample_agreement",
+	"fields": [{
+		"value": "E|date()",
+		"type": "Hidden",
+		"id": "effectiveDate",
+		"dataRef": "effectiveDate"
+	}, {
+		"type": "Hidden",
+		"id": "fullName",
+		"dataRef": "fullName"
+	}, {
+		"type": "Hidden",
+		"id": "street",
+		"dataRef": "street"
+	}, {
+		"type": "Hidden",
+		"id": "city",
+		"dataRef": "city"
+	}, {
+		"type": "Hidden",
+		"id": "zipcode",
+		"dataRef": "zipcode"
+	}, {
+		"type": "Hidden",
+		"id": "state",
+		"dataRef": "state"
+	}, {
+		"value": "This Mutual Non-Disclosure Agreement (this “Agreement”) is made as of the {effectiveDate} between JN Projects, Inc., a Delaware corporation, and {fullName}, an individual (corporation or individual), whose address is {street}, {city}, {state} {zipcode}.",
+		"type": "Paragraph",
+		"id": "paragraph1"
+	}, {
+		"value": "The above named parties desire to begin discussions regarding a business opportunity of mutual interest (the “Business Purpose”). In connection with such discussions, the parties recognize that there is a need to disclose to each other certain confidential information to be used only for the Business Purpose and to protect such confidential information from unauthorized use and disclosure.",
+		"type": "Paragraph",
+		"id": "paragraph2"
+	}, {
+		"value": "In consideration of the other party’s disclosure of such confidential information, each party agrees as follows:",
+		"type": "Paragraph",
+		"id": "paragraph3"
+	}, {
+		"value": "1. For purposes of this Agreement, “Confidential Information” means any technical or business information disclosed by one party to the other party that: (i) if disclosed in writing, is marked “confidential” or “proprietary” at the time of such disclosure; (ii) if disclosed orally, is identified as “confidential” or “proprietary” at the time of such disclosure, and is summarized in a writing sent by the disclosing party to the receiving party within 30 days after any such disclosure; or (iii) under the circumstances, a person exercising reasonable business judgment would understand to be confidential or proprietary.",
+		"type": "Paragraph",
+		"id": "paragraph4"
+	}, {
+		"value": "2. Each party agrees: (i) to maintain the other party’s Confidential Information in strict confidence; (ii) not to disclose such Confidential Information to any third parties; and (iii) not to use any such Confidential Information for any purpose except for the Business Purpose. Each party may disclose the Confidential Information of the other party to its employees and consultants who have a bona fide need to know such Confidential Information for the Business Purpose, but solely to the extent necessary to pursue the Business Purpose and for no other purpose; provided that each such employee and consultant first executes a written agreement (or is otherwise already bound by a written agreement) that contains use and nondisclosure restrictions at least as protective of the other party’s Confidential Information as those set forth in this Agreement. The provisions of this Section 2 will not restrict a party from disclosing the other party’s Confidential Information to the extent required by any law or regulation; provided that the party required to make such a disclosure uses reasonable efforts to give the other party reasonable advance notice of such required disclosure in order to enable the other party to prevent or limit such disclosure.",
+		"type": "Paragraph",
+		"id": "paragraph5"
+	}, {
+		"type": "TextInput",
+		"required": true,
+		"label": "Title",
+		"id": "title",
+		"errors": {
+			"required": "Your title is required"
+		},
+		"dataRef": "title"
+	}, {
+		"type": "Signature",
+		"id": "signature",
+		"dataRef": "agreementSignature"
+	}]
+}

@@ -1,0 +1,20 @@
+{
+	"schema": {
+		"version": "1.0.1",
+		"type": "validation"
+	},
+	"macros": {},
+	"id": "sample_agreement",
+	"fields": {
+		"title": {
+			"validators": [],
+			"type": "string",
+			"required": true
+		},
+		"agreementSignature": {
+			"validators": [],
+			"type": "signature",
+			"required": true
+		}
+	}
+}

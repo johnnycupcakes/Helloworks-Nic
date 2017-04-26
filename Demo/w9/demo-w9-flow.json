@@ -1,0 +1,408 @@
+{
+    "settings": {
+        "preview": true
+    },
+    "schema": {
+        "version": "1.0.1",
+        "type": "form"
+    },
+    "name": "w9",
+    "macros": {
+        "isTrust": "val(entityType) == 'business' && val(taxClassification) == 'trustEstate'",
+        "isSoleProprietor": "val(entityType) == 'business' && val(taxClassification) == 'soleProprietor'",
+        "isSingleLLC": "val(entityType) == 'business' && val(taxClassification) == 'singleMemberLLC'",
+        "isLLC": "val(taxClassification) == 'llc' && val(entityType) == 'business'",
+        "isIndividual": "val(entityType) != 'business'",
+        "isBusiness": "val(entityType) == 'business'",
+        "hasEntityType": "val(entityType) == 'business' || val(entityType) == 'individual'"
+    },
+    "instructions": {
+        "global": "<style type='text/css'>.lst-kix_7mkwcwfbymha-4>li:before{content:'\\0025cb  '}.lst-kix_f16rrmk5wtyp-8>li{counter-increment:lst-ctn-kix_f16rrmk5wtyp-8}.lst-kix_7mkwcwfbymha-3>li:before{content:'\\0025cf  '}.lst-kix_7mkwcwfbymha-5>li:before{content:'\\0025a0  '}.lst-kix_xk14mrdrdreo-6>li:before{content:'' counter(lst-ctn-kix_xk14mrdrdreo-6,decimal) '. '}.lst-kix_xk14mrdrdreo-8>li:before{content:'' counter(lst-ctn-kix_xk14mrdrdreo-8,lower-roman) '. '}ul.lst-kix_a30qcsccy9gm-8{list-style-type:none}ol.lst-kix_f16rrmk5wtyp-8.start{counter-reset:lst-ctn-kix_f16rrmk5wtyp-8 0}.lst-kix_xk14mrdrdreo-3>li{counter-increment:lst-ctn-kix_xk14mrdrdreo-3}.lst-kix_xk14mrdrdreo-5>li:before{content:'' counter(lst-ctn-kix_xk14mrdrdreo-5,lower-roman) '. '}.lst-kix_7mkwcwfbymha-0>li:before{content:'\\0025cf  '}.lst-kix_7mkwcwfbymha-8>li:before{content:'\\0025a0  '}.lst-kix_7mkwcwfbymha-7>li:before{content:'\\0025cb  '}.lst-kix_7mkwcwfbymha-6>li:before{content:'\\0025cf  '}.lst-kix_xk14mrdrdreo-7>li:before{content:'' counter(lst-ctn-kix_xk14mrdrdreo-7,lower-latin) '. '}ol.lst-kix_f16rrmk5wtyp-4{list-style-type:none}.lst-kix_7fpobv54as26-3>li{counter-increment:lst-ctn-kix_7fpobv54as26-3}ol.lst-kix_f16rrmk5wtyp-3{list-style-type:none}ol.lst-kix_f16rrmk5wtyp-6{list-style-type:none}ol.lst-kix_f16rrmk5wtyp-5{list-style-type:none}.lst-kix_xk14mrdrdreo-0>li:before{content:'' counter(lst-ctn-kix_xk14mrdrdreo-0,decimal) '. '}ol.lst-kix_f16rrmk5wtyp-0{list-style-type:none}ol.lst-kix_f16rrmk5wtyp-2{list-style-type:none}ol.lst-kix_f16rrmk5wtyp-1{list-style-type:none}.lst-kix_xk14mrdrdreo-1>li:before{content:'' counter(lst-ctn-kix_xk14mrdrdreo-1,lower-latin) '. '}ul.lst-kix_a30qcsccy9gm-5{list-style-type:none}ul.lst-kix_figfhxyqn5e1-8{list-style-type:none}.lst-kix_6qvonv1eysrr-5>li:before{content:'\\0025a0  '}ul.lst-kix_a30qcsccy9gm-4{list-style-type:none}ul.lst-kix_a30qcsccy9gm-7{list-style-type:none}.lst-kix_7fpobv54as26-2>li{counter-increment:lst-ctn-kix_7fpobv54as26-2}.lst-kix_7mkwcwfbymha-1>li:before{content:'\\0025cb  '}ul.lst-kix_a30qcsccy9gm-6{list-style-type:none}.lst-kix_xk14mrdrdreo-2>li:before{content:'' counter(lst-ctn-kix_xk14mrdrdreo-2,lower-roman) '. '}.lst-kix_xk14mrdrdreo-4>li:before{content:'' counter(lst-ctn-kix_xk14mrdrdreo-4,lower-latin) '. '}ul.lst-kix_a30qcsccy9gm-1{list-style-type:none}ul.lst-kix_figfhxyqn5e1-4{list-style-type:none}.lst-kix_7mkwcwfbymha-2>li:before{content:'\\0025a0  '}.lst-kix_xk14mrdrdreo-4>li{counter-increment:lst-ctn-kix_xk14mrdrdreo-4}.lst-kix_6qvonv1eysrr-3>li:before{content:'\\0025cf  '}.lst-kix_6qvonv1eysrr-4>li:before{content:'\\0025cb  '}ul.lst-kix_a30qcsccy9gm-0{list-style-type:none}ul.lst-kix_figfhxyqn5e1-5{list-style-type:none}ul.lst-kix_a30qcsccy9gm-3{list-style-type:none}ul.lst-kix_figfhxyqn5e1-6{list-style-type:none}ul.lst-kix_a30qcsccy9gm-2{list-style-type:none}ul.lst-kix_figfhxyqn5e1-7{list-style-type:none}.lst-kix_xk14mrdrdreo-3>li:before{content:'' counter(lst-ctn-kix_xk14mrdrdreo-3,decimal) '. '}ul.lst-kix_figfhxyqn5e1-0{list-style-type:none}ul.lst-kix_figfhxyqn5e1-1{list-style-type:none}ul.lst-kix_figfhxyqn5e1-2{list-style-type:none}ul.lst-kix_figfhxyqn5e1-3{list-style-type:none}.lst-kix_7fpobv54as26-1>li{counter-increment:lst-ctn-kix_7fpobv54as26-1}ol.lst-kix_xk14mrdrdreo-4.start{counter-reset:lst-ctn-kix_xk14mrdrdreo-4 0}.lst-kix_6qvonv1eysrr-6>li:before{content:'\\0025cf  '}ol.lst-kix_f16rrmk5wtyp-0.start{counter-reset:lst-ctn-kix_f16rrmk5wtyp-0 0}.lst-kix_f16rrmk5wtyp-7>li{counter-increment:lst-ctn-kix_f16rrmk5wtyp-7}.lst-kix_6qvonv1eysrr-7>li:before{content:'\\0025cb  '}.lst-kix_6qvonv1eysrr-8>li:before{content:'\\0025a0  '}ol.lst-kix_7fpobv54as26-4.start{counter-reset:lst-ctn-kix_7fpobv54as26-4 0}ol.lst-kix_7fpobv54as26-7.start{counter-reset:lst-ctn-kix_7fpobv54as26-7 0}.lst-kix_7fpobv54as26-4>li{counter-increment:lst-ctn-kix_7fpobv54as26-4}ol.lst-kix_xk14mrdrdreo-7.start{counter-reset:lst-ctn-kix_xk14mrdrdreo-7 0}ol.lst-kix_f16rrmk5wtyp-3.start{counter-reset:lst-ctn-kix_f16rrmk5wtyp-3 0}.lst-kix_a30qcsccy9gm-7>li:before{content:'\\0025cb  '}.lst-kix_7fpobv54as26-5>li{counter-increment:lst-ctn-kix_7fpobv54as26-5}.lst-kix_a30qcsccy9gm-8>li:before{content:'\\0025a0  '}ol.lst-kix_7fpobv54as26-1.start{counter-reset:lst-ctn-kix_7fpobv54as26-1 0}.lst-kix_7fpobv54as26-8>li:before{content:'' counter(lst-ctn-kix_7fpobv54as26-8,lower-roman) '. '}ol.lst-kix_xk14mrdrdreo-5.start{counter-reset:lst-ctn-kix_xk14mrdrdreo-5 0}.lst-kix_f16rrmk5wtyp-0>li{counter-increment:lst-ctn-kix_f16rrmk5wtyp-0}ul.lst-kix_7mkwcwfbymha-5{list-style-type:none}.lst-kix_f16rrmk5wtyp-6>li{counter-increment:lst-ctn-kix_f16rrmk5wtyp-6}ul.lst-kix_7mkwcwfbymha-4{list-style-type:none}ul.lst-kix_7mkwcwfbymha-3{list-style-type:none}ol.lst-kix_7fpobv54as26-8.start{counter-reset:lst-ctn-kix_7fpobv54as26-8 0}ul.lst-kix_7mkwcwfbymha-2{list-style-type:none}ul.lst-kix_7mkwcwfbymha-8{list-style-type:none}ul.lst-kix_7mkwcwfbymha-7{list-style-type:none}ul.lst-kix_7mkwcwfbymha-6{list-style-type:none}.lst-kix_6qvonv1eysrr-1>li:before{content:'\\0025cb  '}.lst-kix_6qvonv1eysrr-2>li:before{content:'\\0025a0  '}ol.lst-kix_f16rrmk5wtyp-2.start{counter-reset:lst-ctn-kix_f16rrmk5wtyp-2 0}.lst-kix_7fpobv54as26-1>li:before{content:'' counter(lst-ctn-kix_7fpobv54as26-1,lower-latin) '. '}ul.lst-kix_7mkwcwfbymha-1{list-style-type:none}ul.lst-kix_7mkwcwfbymha-0{list-style-type:none}ul.lst-kix_6qvonv1eysrr-8{list-style-type:none}ul.lst-kix_6qvonv1eysrr-7{list-style-type:none}.lst-kix_7fpobv54as26-2>li:before{content:'' counter(lst-ctn-kix_7fpobv54as26-2,lower-roman) '. '}.lst-kix_xk14mrdrdreo-2>li{counter-increment:lst-ctn-kix_xk14mrdrdreo-2}.lst-kix_xk14mrdrdreo-8>li{counter-increment:lst-ctn-kix_xk14mrdrdreo-8}.lst-kix_6qvonv1eysrr-0>li:before{content:'\\0025cf  '}.lst-kix_xk14mrdrdreo-5>li{counter-increment:lst-ctn-kix_xk14mrdrdreo-5}.lst-kix_7fpobv54as26-0>li:before{content:'' counter(lst-ctn-kix_7fpobv54as26-0,decimal) '. '}.lst-kix_7fpobv54as26-7>li:before{content:'' counter(lst-ctn-kix_7fpobv54as26-7,lower-latin) '. '}ol.lst-kix_7fpobv54as26-2.start{counter-reset:lst-ctn-kix_7fpobv54as26-2 0}.lst-kix_7fpobv54as26-6>li:before{content:'' counter(lst-ctn-kix_7fpobv54as26-6,decimal) '. '}ul.lst-kix_6qvonv1eysrr-6{list-style-type:none}ul.lst-kix_6qvonv1eysrr-5{list-style-type:none}ul.lst-kix_6qvonv1eysrr-4{list-style-type:none}ul.lst-kix_6qvonv1eysrr-3{list-style-type:none}.lst-kix_7fpobv54as26-3>li:before{content:'' counter(lst-ctn-kix_7fpobv54as26-3,decimal) '. '}.lst-kix_7fpobv54as26-5>li:before{content:'' counter(lst-ctn-kix_7fpobv54as26-5,lower-roman) '. '}ul.lst-kix_6qvonv1eysrr-2{list-style-type:none}ul.lst-kix_6qvonv1eysrr-1{list-style-type:none}ul.lst-kix_6qvonv1eysrr-0{list-style-type:none}.lst-kix_7fpobv54as26-4>li:before{content:'' counter(lst-ctn-kix_7fpobv54as26-4,lower-latin) '. '}ol.lst-kix_7fpobv54as26-6.start{counter-reset:lst-ctn-kix_7fpobv54as26-6 0}.lst-kix_f16rrmk5wtyp-2>li{counter-increment:lst-ctn-kix_f16rrmk5wtyp-2}ol.lst-kix_f16rrmk5wtyp-1.start{counter-reset:lst-ctn-kix_f16rrmk5wtyp-1 0}.lst-kix_7fpobv54as26-8>li{counter-increment:lst-ctn-kix_7fpobv54as26-8}ol.lst-kix_xk14mrdrdreo-0.start{counter-reset:lst-ctn-kix_xk14mrdrdreo-0 0}ol.lst-kix_xk14mrdrdreo-6.start{counter-reset:lst-ctn-kix_xk14mrdrdreo-6 0}.lst-kix_f16rrmk5wtyp-3>li{counter-increment:lst-ctn-kix_f16rrmk5wtyp-3}ol.lst-kix_xk14mrdrdreo-3.start{counter-reset:lst-ctn-kix_xk14mrdrdreo-3 0}ol.lst-kix_7fpobv54as26-3.start{counter-reset:lst-ctn-kix_7fpobv54as26-3 0}ol.lst-kix_7fpobv54as26-0.start{counter-reset:lst-ctn-kix_7fpobv54as26-0 0}ol.lst-kix_f16rrmk5wtyp-4.start{counter-reset:lst-ctn-kix_f16rrmk5wtyp-4 0}.lst-kix_f16rrmk5wtyp-4>li{counter-increment:lst-ctn-kix_f16rrmk5wtyp-4}.lst-kix_figfhxyqn5e1-8>li:before{content:'\\0025a0  '}ol.lst-kix_f16rrmk5wtyp-7.start{counter-reset:lst-ctn-kix_f16rrmk5wtyp-7 0}.lst-kix_7fpobv54as26-7>li{counter-increment:lst-ctn-kix_7fpobv54as26-7}.lst-kix_f16rrmk5wtyp-1>li{counter-increment:lst-ctn-kix_f16rrmk5wtyp-1}.lst-kix_a30qcsccy9gm-6>li:before{content:'\\0025cf  '}ol.lst-kix_7fpobv54as26-8{list-style-type:none}.lst-kix_xk14mrdrdreo-6>li{counter-increment:lst-ctn-kix_xk14mrdrdreo-6}ol.lst-kix_xk14mrdrdreo-8{list-style-type:none}.lst-kix_f16rrmk5wtyp-5>li{counter-increment:lst-ctn-kix_f16rrmk5wtyp-5}.lst-kix_figfhxyqn5e1-2>li:before{content:'\\0025a0  '}.lst-kix_figfhxyqn5e1-3>li:before{content:'\\0025cf  '}ol.lst-kix_xk14mrdrdreo-6{list-style-type:none}.lst-kix_a30qcsccy9gm-5>li:before{content:'\\0025a0  '}.lst-kix_f16rrmk5wtyp-1>li:before{content:'' counter(lst-ctn-kix_f16rrmk5wtyp-1,lower-latin) '. '}ol.lst-kix_xk14mrdrdreo-7{list-style-type:none}.lst-kix_figfhxyqn5e1-0>li:before{content:'\\0025cf  '}.lst-kix_figfhxyqn5e1-1>li:before{content:'\\0025cb  '}.lst-kix_figfhxyqn5e1-4>li:before{content:'\\0025cb  '}.lst-kix_figfhxyqn5e1-5>li:before{content:'\\0025a0  '}.lst-kix_a30qcsccy9gm-4>li:before{content:'\\0025cb  '}.lst-kix_f16rrmk5wtyp-2>li:before{content:'' counter(lst-ctn-kix_f16rrmk5wtyp-2,lower-roman) '. '}ol.lst-kix_7fpobv54as26-0{list-style-type:none}ol.lst-kix_7fpobv54as26-1{list-style-type:none}.lst-kix_figfhxyqn5e1-6>li:before{content:'\\0025cf  '}.lst-kix_figfhxyqn5e1-7>li:before{content:'\\0025cb  '}ol.lst-kix_7fpobv54as26-2{list-style-type:none}.lst-kix_a30qcsccy9gm-1>li:before{content:'\\0025cb  '}.lst-kix_a30qcsccy9gm-3>li:before{content:'\\0025cf  '}ol.lst-kix_7fpobv54as26-3{list-style-type:none}.lst-kix_f16rrmk5wtyp-3>li:before{content:'' counter(lst-ctn-kix_f16rrmk5wtyp-3,decimal) '. '}.lst-kix_f16rrmk5wtyp-5>li:before{content:'' counter(lst-ctn-kix_f16rrmk5wtyp-5,lower-roman) '. '}ol.lst-kix_7fpobv54as26-4{list-style-type:none}ol.lst-kix_xk14mrdrdreo-1.start{counter-reset:lst-ctn-kix_xk14mrdrdreo-1 0}ol.lst-kix_7fpobv54as26-5{list-style-type:none}.lst-kix_xk14mrdrdreo-0>li{counter-increment:lst-ctn-kix_xk14mrdrdreo-0}ol.lst-kix_7fpobv54as26-6{list-style-type:none}.lst-kix_a30qcsccy9gm-2>li:before{content:'\\0025a0  '}ol.lst-kix_7fpobv54as26-7{list-style-type:none}.lst-kix_f16rrmk5wtyp-4>li:before{content:'' counter(lst-ctn-kix_f16rrmk5wtyp-4,lower-latin) '. '}.lst-kix_7fpobv54as26-6>li{counter-increment:lst-ctn-kix_7fpobv54as26-6}ol.lst-kix_f16rrmk5wtyp-6.start{counter-reset:lst-ctn-kix_f16rrmk5wtyp-6 0}.lst-kix_xk14mrdrdreo-7>li{counter-increment:lst-ctn-kix_xk14mrdrdreo-7}.lst-kix_a30qcsccy9gm-0>li:before{content:'\\0025cf  '}ol.lst-kix_xk14mrdrdreo-8.start{counter-reset:lst-ctn-kix_xk14mrdrdreo-8 0}.lst-kix_xk14mrdrdreo-1>li{counter-increment:lst-ctn-kix_xk14mrdrdreo-1}.lst-kix_f16rrmk5wtyp-0>li:before{content:'' counter(lst-ctn-kix_f16rrmk5wtyp-0,decimal) '. '}ol.lst-kix_f16rrmk5wtyp-8{list-style-type:none}ol.lst-kix_7fpobv54as26-5.start{counter-reset:lst-ctn-kix_7fpobv54as26-5 0}ol.lst-kix_f16rrmk5wtyp-7{list-style-type:none}.lst-kix_7fpobv54as26-0>li{counter-increment:lst-ctn-kix_7fpobv54as26-0}ol.lst-kix_f16rrmk5wtyp-5.start{counter-reset:lst-ctn-kix_f16rrmk5wtyp-5 0}.lst-kix_f16rrmk5wtyp-7>li:before{content:'' counter(lst-ctn-kix_f16rrmk5wtyp-7,lower-latin) '. '}.lst-kix_f16rrmk5wtyp-6>li:before{content:'' counter(lst-ctn-kix_f16rrmk5wtyp-6,decimal) '. '}ol.lst-kix_xk14mrdrdreo-0{list-style-type:none}ol.lst-kix_xk14mrdrdreo-1{list-style-type:none}ol.lst-kix_xk14mrdrdreo-2.start{counter-reset:lst-ctn-kix_xk14mrdrdreo-2 0}ol.lst-kix_xk14mrdrdreo-4{list-style-type:none}ol.lst-kix_xk14mrdrdreo-5{list-style-type:none}ol.lst-kix_xk14mrdrdreo-2{list-style-type:none}.lst-kix_f16rrmk5wtyp-8>li:before{content:'' counter(lst-ctn-kix_f16rrmk5wtyp-8,lower-roman) '. '}ol.lst-kix_xk14mrdrdreo-3{list-style-type:none}ol{margin:0;padding:0}table td,table th{padding:0}.c2{border-right-style:solid;padding:5pt 5pt 5pt 5pt;border-bottom-color:#000000;border-top-width:1pt;border-right-width:1pt;border-left-color:#000000;vertical-align:top;border-right-color:#000000;border-left-width:1pt;border-top-style:solid;border-left-style:solid;border-bottom-width:1pt;width:234pt;border-top-color:#000000;border-bottom-style:solid}.c1{color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-style:normal}.c5{color:#000000;font-weight:700;text-decoration:none;vertical-align:baseline;font-size:11pt;font-style:normal}.c0{padding-top:0pt;padding-bottom:0pt;line-height:1.15;orphans:2;widows:2;text-align:left;height:11pt}.c7{color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:10pt;font-style:normal}.c6{padding-top:0pt;padding-bottom:0pt;line-height:1.15;orphans:2;widows:2;text-align:left}.c13{padding-top:0pt;padding-bottom:0pt;line-height:1.0;text-align:center}.c15{border-spacing:0;border-collapse:collapse;margin-right:auto}.c8{padding-top:0pt;padding-bottom:0pt;line-height:1.0;text-align:left}.c16{background-color:#ffffff;max-width:468pt;padding:0}.c9{margin-left:36pt;padding-left:0pt}.c14{padding:0;margin:0}.c4{font-weight:400;}.c12{font-weight:700;}.c17{width:33%;height:1px}.c10{orphans:2;widows:2}.c19{font-weight:700}.c20{font-size:14pt}.c18{font-size:10pt}.c3{height:0pt}.c11{height:11pt}.title{padding-top:0pt;color:#000000;font-size:26pt;padding-bottom:3pt;line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}.subtitle{padding-top:0pt;color:#666666;font-size:15pt;padding-bottom:16pt;line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}li{color:#000000;font-size:11pt;}p{margin:0;color:#000000;font-size:11pt;}h1{padding-top:20pt;color:#000000;font-size:20pt;padding-bottom:6pt;line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h2{padding-top:18pt;color:#000000;font-size:16pt;padding-bottom:6pt;line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h3{padding-top:16pt;color:#434343;font-size:14pt;padding-bottom:4pt;line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h4{padding-top:14pt;color:#666666;font-size:12pt;padding-bottom:4pt;line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h5{padding-top:12pt;color:#666666;font-size:11pt;padding-bottom:4pt;line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h6{padding-top:12pt;color:#666666;font-size:11pt;padding-bottom:4pt;line-height:1.15;page-break-after:avoid;font-style:italic;orphans:2;widows:2;text-align:left}</style><div class='c16'><p class='c6'><span class='c1'>If for any reason, you are not able to complete your W-9 as instructed, do not submit this and contact the Requester to discuss how to proceed.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c4 c20'>Form W-9 Instructions</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c12'>Note.</span><span class='c1'>&nbsp;If you are a U.S. person and a requester gives you a form other than Form W-9 to request your TIN, you must use the requester&rsquo;s form if it is substantially similar to this Form W-9. </span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c12'>Definition of a U.S. person.</span><span class='c1'>&nbsp;For federal tax purposes, you are considered a U.S. person if you are: </span></p><ul class='c14 lst-kix_figfhxyqn5e1-0 start'><li class='c6 c9'><span class='c1'>An individual who is a U.S. citizen or U.S. resident alien; </span></li><li class='c6 c9'><span class='c1'>A partnership, corporation, company, or association created or organized in the United States or under the laws of the United States; </span></li><li class='c6 c9'><span class='c1'>An estate (other than a foreign estate); or </span></li><li class='c6 c9'><span class='c1'>A domestic trust (as defined in Regulations section 301.7701-7). </span></li></ul><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c12'>Special rules for partnerships.</span><span class='c1'>&nbsp;</span></p><p class='c6'><span class='c1'>Partnerships that conduct a trade or business in the United States are generally required to pay a withholding tax under section 1446 on any foreign partners&rsquo; share of effectively connected taxable income from such business. Further, in certain cases where a Form W-9 has not been received, the rules under section 1446 require a partnership to presume that a partner is a foreign person, and pay the section 1446 withholding tax. Therefore, if you are a U.S. person that is a partner in a partnership conducting a trade or business in the United States, provide Form W-9 to the partnership to establish your U.S. status and avoid section 1446 withholding on your share of partnership income. </span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>In the cases below, the following person must give Form W-9 to the partnership for purposes of establishing its U.S. status and avoiding withholding on its allocable share of net income from the partnership conducting a trade or business in the United States: </span></p><p class='c0'><span class='c1'></span></p><ul class='c14 lst-kix_a30qcsccy9gm-0 start'><li class='c6 c9'><span class='c1'>In the case of a disregarded entity with a U.S. owner, the U.S. owner of the disregarded entity and not the entity; </span></li><li class='c6 c9'><span class='c1'>In the case of a grantor trust with a U.S. grantor or other U.S. owner, generally, the U.S. grantor or other U.S. owner of the grantor trust and not the trust; and </span></li><li class='c6 c9'><span class='c1'>In the case of a U.S. trust (other than a grantor trust), the U.S. trust (other than a grantor trust) and not the beneficiaries of the trust. </span></li></ul><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>Foreign person. </span></p><p class='c6'><span class='c1'>If you are a foreign person or the U.S. branch of a foreign bank that has elected to be treated as a U.S. person, do not use Form W-9. Instead, use the appropriate Form W-8 or Form 8233 (see Publication 515, Withholding of Tax on Nonresident Aliens and Foreign Entities). </span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>Nonresident alien who becomes a resident alien. </span></p><p class='c6'><span class='c1'>Generally, only a nonresident alien individual may use the terms of a tax treaty to reduce or eliminate U.S. tax on certain types of income. However, most tax treaties contain a provision known as a &ldquo;saving clause.&rdquo; Exceptions specified in the saving clause may permit an exemption from tax to continue for certain types of income even after the payee has otherwise become a U.S. resident alien for tax purposes. </span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>If you are a U.S. resident alien who is relying on an exception contained in the saving clause of a tax treaty to claim an exemption from U.S. tax on certain types of income, you must attach a statement to Form W-9 that specifies the following five items: </span></p><p class='c0'><span class='c1'></span></p><ol class='c14 lst-kix_f16rrmk5wtyp-0 start' start='1'><li class='c6 c9'><span class='c1'>The treaty country. Generally, this must be the same treaty under which you claimed exemption from tax as a nonresident alien. </span></li><li class='c6 c9'><span class='c1'>The treaty article addressing the income. </span></li><li class='c6 c9'><span class='c1'>The article number (or location) in the tax treaty that contains the saving clause and its exceptions. </span></li><li class='c6 c9'><span class='c1'>The type and amount of income that qualifies for the exemption from tax. </span></li><li class='c6 c9'><span class='c1'>Sufficient facts to justify the exemption from tax under the terms of the treaty article. </span></li></ol><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>Example. </span></p><p class='c6'><span class='c1'>Article 20 of the U.S.-China income tax treaty allows an exemption from tax for scholarship income received by a Chinese student temporarily present in the United States. Under U.S. law, this student will become a resident alien for tax purposes if his or her stay in the United States exceeds 5 calendar years. However, paragraph 2 of the first Protocol to the U.S.-China treaty (dated April 30, 1984) allows the provisions of Article 20 to continue to apply even after the Chinese student becomes a resident alien of the United States. A Chinese student who qualifies for this exception (under paragraph 2 of the first protocol) and is relying on this exception to claim an exemption from tax on his or her scholarship or fellowship income would attach to Form W-9 a statement that includes the information described above to support that exemption. </span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>If you are a nonresident alien or a foreign entity, give the requester the appropriate completed Form W-8 or Form 8233. </span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>Backup Withholding</span></p><p class='c0'><span class='c5'></span></p><p class='c6'><span class='c12'>What is backup withholding?</span><span class='c1'>&nbsp;</span></p><p class='c6'><span class='c1'>Persons making certain payments to you must under certain conditions withhold and pay to the IRS 28% of such payments. This is called &ldquo;backup withholding.&rdquo; Payments that may be subject to backup withholding include interest, tax-exempt interest, dividends, broker and barter exchange transactions, rents, royalties, nonemployee pay, payments made in settlement of payment card and third party network transactions, and certain payments from fishing boat operators. Real estate transactions are not subject to backup withholding. </span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>You will not be subject to backup withholding on payments you receive if you give the requester your correct TIN, make the proper certifications, and report all your taxable interest and dividends on your tax return. </span></p><p class='c0'><span class='c1'></span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c12'>Payments you receive will be subject to backup withholding if:</span><span class='c1'>&nbsp;</span></p><ol class='c14 lst-kix_xk14mrdrdreo-0 start' start='1'><li class='c6 c9'><span class='c1'>You do not furnish your TIN to the requester, </span></li><li class='c6 c9'><span class='c1'>You do not certify your TIN when required (see the Part II instructions on page 3 for details),</span></li><li class='c6 c9'><span class='c1'>The IRS tells the requester that you furnished an incorrect TIN, </span></li><li class='c6 c9'><span class='c1'>The IRS tells you that you are subject to backup withholding because you did not report all your interest and dividends on your tax return (for reportable interest and dividends only), or </span></li><li class='c6 c9'><span class='c1'>You do not certify to the requester that you are not subject to backup withholding under 4 above (for reportable interest and dividend accounts opened after 1983 only). </span></li></ol><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>Certain payees and payments are exempt from backup withholding. See Exempt payee code on page 3 and the separate Instructions for the Requester of Form W-9 for more information. </span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>Also see Special rules for partnerships above.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c12'>What is FATCA reporting? </span></p><p class='c6'><span class='c1'>The Foreign Account Tax Compliance Act (FATCA) requires a participating foreign financial institution to report all United States account holders that are specified United States persons. Certain payees are exempt from FATCA reporting. See Exemption from FATCA reporting code on page 3 and the Instructions for the Requester of Form W-9 for more information.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c12'>Updating Your Information</span><span class='c1'>&nbsp;</span></p><p class='c6'><span class='c1'>You must provide updated information to any person to whom you claimed to be an exempt payee if you are no longer an exempt payee and anticipate receiving reportable payments in the future from this person. For example, you may need to provide updated information if you are a C corporation that elects to be an S corporation, or if you no longer are tax exempt. In addition, you must furnish a new Form W-9 if the name or TIN changes for the account; for example, if the grantor of a grantor trust dies.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>Penalties </span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>Failure to furnish TIN. </span></p><p class='c6'><span class='c1'>If you fail to furnish your correct TIN to a requester, you are subject to a penalty of $50 for each such failure unless your failure is due to reasonable cause and not to willful neglect. </span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c12'>Civil penalty for false information with respect to withholding.</span><span class='c1'>&nbsp;</span></p><p class='c6'><span class='c1'>If you make a false statement with no reasonable basis that results in no backup withholding, you are subject to a $500 penalty. </span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c12'>Criminal penalty for falsifying information.</span><span class='c1'>&nbsp;Willfully falsifying certifications or affirmations may subject you to criminal penalties including fines and/or imprisonment. </span></p><p class='c6'><span class='c12'>Misuse of TINs.</span><span class='c1'>&nbsp;If the requester discloses or uses TINs in violation of federal law, the requester may be subject to civil and criminal penalties.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>Specific Instructions </span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c12'>Line 1</span></p><p class='c6'><span class='c1'>You must enter one of the following on this line; do not leave this line blank. The name should match the name on your tax return. If this Form W-9 is for a joint account, list first, and then circle, the name of the person or entity whose number you entered in Part I of Form W-9.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>a. Individual. </span></p><p class='c6'><span class='c1'>Generally, enter the name shown on your tax return. If you have changed your last name without informing the Social Security Administration (SSA) of the name change, enter your first name, the last name as shown on your social security card, and your new last name.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c12'>Note. ITIN applicant:</span><span class='c1'>&nbsp;Enter your individual name as it was entered on your Form W-7 application, line 1a. This should also be the same as the name you entered on the Form 1040/1040A/1040EZ you filed with your application.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>b. Sole proprietor or single-member LLC. </span></p><p class='c6'><span class='c1'>Enter your individual name as shown on your 1040/1040A/1040EZ on line 1. You may enter your business, trade, or &ldquo;doing business as&rdquo; (DBA) name on line 2.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>c. Partnership, LLC that is not a single-member LLC, C Corporation, or S Corporation. </span></p><p class='c6'><span class='c1'>Enter the entity&#39;s name as shown on the entity&#39;s tax return on line 1 and any business, trade, or DBA name on line 2.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>d. Other entities. </span></p><p class='c6'><span class='c1'>Enter your name as shown on required U.S. federal tax documents on line 1. This name should match the name shown on the charter or other legal document creating the entity. You may enter any business, trade, or DBA name on line 2.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>e. Disregarded entity. </span></p><p class='c6'><span class='c1'>For U.S. federal tax purposes, an entity that is disregarded as an entity separate from its owner is treated as a &ldquo;disregarded entity.&rdquo; See Regulations section 301.7701-2(c)(2)(iii). Enter the owner&#39;s name on line 1. The name of the entity entered on line 1 should never be a disregarded entity. The name on line 1 should be the name shown on the income tax return on which the income should be reported. For example, if a foreign LLC that is treated as a disregarded entity for U.S. federal tax purposes has a single owner that is a U.S. person, the U.S. owner&#39;s name is required to be provided on line 1. If the direct owner of the entity is also a disregarded entity, enter the first owner that is not disregarded for federal tax purposes. Enter the disregarded entity&#39;s name on line 2, &ldquo;Business name/disregarded entity name.&rdquo; If the owner of the disregarded entity is a foreign person, the owner must complete an appropriate Form W-8 instead of a Form W-9. This is the case even if the foreign person has a U.S. TIN. </span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>Line 2 </span></p><p class='c6'><span class='c1'>If you have a business name, trade name, DBA name, or disregarded entity name, you may enter it on line 2.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>Line 3</span></p><p class='c6'><span class='c1'>Check the appropriate box in line 3 for the U.S. federal tax classification of the person whose name is entered on line 1. Check only one box in line 3.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>Limited Liability Company (LLC).</span></p><p class='c6'><span class='c1'>If the name on line 1 is an LLC treated as a partnership for U.S. federal tax purposes, check the &ldquo;Limited Liability Company&rdquo; box and enter &ldquo;P&rdquo; in the space provided. If the LLC has filed Form 8832 or 2553 to be taxed as a corporation, check the &ldquo;Limited Liability Company&rdquo; box and in the space provided enter &ldquo;C&rdquo; for C corporation or &ldquo;S&rdquo; for S corporation. If it is a single-member LLC that is a disregarded entity, do not check the &ldquo;Limited Liability Company&rdquo; box; instead check the first box in line 3 &ldquo;Individual/sole proprietor or single-member LLC.&rdquo;</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>Line 4, Exemptions </span></p><p class='c6'><span class='c1'>If you are exempt from backup withholding and/or FATCA reporting, enter in the appropriate space in line 4 any code(s) that may apply to you.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>Exempt payee code.</span></p><ul class='c14 lst-kix_7mkwcwfbymha-0 start'><li class='c6 c9'><span class='c1'>Generally, individuals (including sole proprietors) are not exempt from backup withholding.</span></li><li class='c6 c9'><span class='c1'>Except as provided below, corporations are exempt from backup withholding for certain payments, including interest and dividends.</span></li><li class='c6 c9'><span class='c1'>Corporations are not exempt from backup withholding for payments made in settlement of payment card or third party network transactions.</span></li><li class='c6 c9'><span class='c1'>Corporations are not exempt from backup withholding with respect to attorneys&#39; fees or gross proceeds paid to attorneys, and corporations that provide medical or health care services are not exempt with respect to payments reportable on Form 1099-MISC.</span></li></ul><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>The following codes identify payees that are exempt from backup withholding. Enter the appropriate code in the space in line 4.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>1 - An organization exempt from tax under section 501(a), any IRA, or a custodial account under section 403(b)(7) if the account satisfies the requirements of section 401(f)(2)</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>2 - The United States or any of its agencies or instrumentalities</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>3 - A state, the District of Columbia, a U.S. commonwealth or possession, or any of their political subdivisions or instrumentalities</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>4 - A foreign government or any of its political subdivisions, agencies, or instrumentalities</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>5 - A corporation</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>6 - A dealer in securities or commodities required to register in the United States, the District of Columbia, or a U.S. commonwealth or possession</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>7 - A futures commission merchant registered with the Commodity Futures Trading Commission</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>8 - A real estate investment trust</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>9 - An entity registered at all times during the tax year under the Investment Company Act of 1940</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>10 - A common trust fund operated by a bank under section 584(a)</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>11 - A financial institution</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>12 - A middleman known in the investment community as a nominee or custodian 13&mdash;A trust </span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>13 - A trust exempt from tax under section 664 or described in section 4947</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>The following chart shows types of payments that may be exempt from backup withholding. The chart applies to the exempt payees listed above, 1 through 13.</span></p><p class='c0'><span class='c1'></span></p><p class='c0'><span class='c1'></span></p><a id='t.0823f2b11e4f867cd5f3b71ced49029906d6ed0a'></a><a id='t.0'></a><table class='c15'><tbody><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c13'><span class='c5'>IF the payment is for . . .</span></p></td><td class='c2' colspan='1' rowspan='1'><p class='c13'><span class='c5'>THEN the payment is exempt for . . .</span></p></td></tr><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>Interest and dividend payments</span></p></td><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>All exempt payees except for 7</span></p></td></tr><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>Broker transactions</span></p></td><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>Exempt payees 1 through 4 and 6 through 11 and all C corporations. S corporations must not enter an exempt payee code because they are exempt only for sales of noncovered securities acquired prior to 2012.</span></p></td></tr><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>Barter exchange transactions and patronage dividends</span></p></td><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>Exempt payees 1 through 4</span></p></td></tr><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c4'>Payments over $600 required to be reported and direct sales over $5,000</span><sup class='c4'><a href='#ftnt1' id='ftnt_ref1'>[1]</a></sup></p></td><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c4'>Generally, exempt payees 1 through 5</span><sup class='c4'><a href='#ftnt2' id='ftnt_ref2'>[2]</a></sup></p></td></tr><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>Payments made in settlement of payment card or third party network transactions </span></p></td><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>Exempt payees 1 through 4</span></p></td></tr></tbody></table><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>Exemption from FATCA reporting code. </span></p><p class='c6'><span class='c1'>The following codes identify payees that are exempt from reporting under FATCA. These codes apply to persons submitting this form for accounts maintained outside of the United States by certain foreign financial institutions. Therefore, if you are only submitting this form for an account you hold in the United States, you may leave this field blank. Consult with the person requesting this form if you are uncertain if the financial institution is subject to these requirements. A requester may indicate that a code is not required by providing you with a Form W-9 with &ldquo;Not Applicable&rdquo; (or any similar indication) written or printed on the line for a FATCA exemption code.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>A - An organization exempt from tax under section 501(a) or any individual retirement plan as defined in section 7701(a)(37)</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>B - The United States or any of its agencies or instrumentalities</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>C - A state, the District of Columbia, a U.S. commonwealth or possession, or any of their political subdivisions or instrumentalities</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>D - A corporation the stock of which is regularly traded on one or more established securities markets, as described in Regulations section 1.1472-1(c)(1)(i)</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>E - A corporation that is a member of the same expanded affiliated group as a corporation described in Regulations section 1.1472-1(c)(1)(i)</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>F - A dealer in securities, commodities, or derivative financial instruments (including notional principal contracts, futures, forwards, and options) that is registered as such under the laws of the United States or any state</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>G - A real estate investment trust</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>H - A regulated investment company as defined in section 851 or an entity registered at all times during the tax year under the Investment Company Act of 1940</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>I - A common trust fund as defined in section 584(a)</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>J - A bank as defined in section 581</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>K - A broker</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>L - A trust exempt from tax under section 664 or described in section 4947(a)(1)</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>M - A tax exempt trust under a section 403(b) plan or section 457(g) plan</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c12'>Note.</span><span class='c1'>&nbsp;You may wish to consult with the financial institution requesting this form to determine whether the FATCA code and/or exempt payee code should be completed.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>Line 5</span></p><p class='c6'><span class='c1'>Enter your address (number, street, and apartment or suite number). This is where the requester of this Form W-9 will mail your information returns. </span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c12'>Line 6</span><span class='c1'>&nbsp;</span></p><p class='c6'><span class='c1'>Enter your city, state, and ZIP code</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>Part I. Taxpayer Identification Number (TIN)</span></p><p class='c0'><span class='c5'></span></p><p class='c6'><span class='c5'>Enter your TIN in the appropriate box. </span></p><p class='c6'><span class='c1'>If you are a resident alien and you do not have and are not eligible to get an SSN, your TIN is your IRS individual taxpayer identification number (ITIN). Enter it in the social security number box. If you do not have an ITIN, see How to get a TIN below.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>If you are a sole proprietor and you have an EIN, you may enter either your SSN or EIN. However, the IRS prefers that you use your SSN.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>If you are a single-member LLC that is disregarded as an entity separate from its owner (see Limited Liability Company (LLC) on this page), enter the owner&rsquo;s SSN (or EIN, if the owner has one). Do not enter the disregarded entity&rsquo;s EIN. If the LLC is classified as a corporation or partnership, enter the entity&rsquo;s EIN.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c12'>Note.</span><span class='c1'>&nbsp;See the chart on page 4 for further clarification of name and TIN combinations.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c12'>How to get a TIN.</span><span class='c1'>&nbsp;</span></p><p class='c6'><span class='c1'>If you do not have a TIN, apply for one immediately. To apply for an SSN, get Form SS-5, Application for a Social Security Card, from your local SSA office or get this form online at www.ssa.gov. You may also get this form by calling 1-800-772-1213. Use Form W-7, Application for IRS Individual Taxpayer Identification Number, to apply for an ITIN, or Form SS-4, Application for Employer Identification Number, to apply for an EIN. You can apply for an EIN online by accessing the IRS website at www.irs.gov/businesses and clicking on Employer Identification Number (EIN) under Starting a Business. You can get Forms W-7 and SS-4 from the IRS by visiting IRS.gov or by calling 1-800-TAX-FORM (1-800-829-3676).</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>If you are asked to complete Form W-9 but do not have a TIN, apply for a TIN and write &ldquo;Applied For&rdquo; in the space for the TIN, sign and date the form, and give it to the requester. For interest and dividend payments, and certain payments made with respect to readily tradable instruments, generally you will have 60 days to get a TIN and give it to the requester before you are subject to backup withholding on payments. The 60-day rule does not apply to other types of payments. You will be subject to backup withholding on all such payments until you provide your TIN to the requester.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c12'>Note.</span><span class='c1'>&nbsp;Entering &ldquo;Applied For&rdquo; means that you have already applied for a TIN or that you intend to apply for one soon.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c12'>Caution:</span><span class='c1'>&nbsp;A disregarded U.S. entity that has a foreign owner must use the appropriate Form W-8.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>Part II. Certification </span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>To establish to the withholding agent that you are a U.S. person, or resident alien, sign Form W-9. You may be requested to sign by the withholding agent even if items 1, 4, or 5 below indicate otherwise.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>For a joint account, only the person whose TIN is shown in Part I should sign (when required). In the case of a disregarded entity, the person identified on line 1 must sign. Exempt payees, see Exempt payee code earlier.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c12'>Signature requirements.</span><span class='c1'>&nbsp;</span></p><p class='c6'><span class='c1'>Complete the certification as indicated in items 1 through 5 below.</span></p><p class='c0'><span class='c1'></span></p><ol class='c14 lst-kix_7fpobv54as26-0 start' start='1'><li class='c6 c9'><span class='c12'>Interest, dividend, and barter exchange accounts opened before 1984 and broker accounts considered active during 1983.</span><span class='c1'>&nbsp;You must give your correct TIN, but you do not have to sign the certification.</span></li><li class='c6 c9'><span class='c12'>Interest, dividend, broker, and barter exchange accounts opened after 1983 and broker accounts considered inactive during 1983.</span><span class='c1'>&nbsp;You must sign the certification or backup withholding will apply. If you are subject to backup withholding and you are merely providing your correct TIN to the requester, you must cross out item 2 in the certification before signing the form.</span></li><li class='c6 c9'><span class='c12'>Real estate transactions.</span><span class='c1'>&nbsp;You must sign the certification. You may cross out item 2 of the certification.</span></li><li class='c6 c9'><span class='c12'>Other payments.</span><span class='c1'>&nbsp;You must give your correct TIN, but you do not have to sign the certification unless you have been notified that you have previously given an incorrect TIN. &ldquo;Other payments&rdquo; include payments made in the course of the requester&rsquo;s trade or business for rents, royalties, goods (other than bills for merchandise), medical and health care services (including payments to corporations), payments to a nonemployee for services, payments made in settlement of payment card and third party network transactions, payments to certain fishing boat crew members and fishermen, and gross proceeds paid to attorneys (including payments to corporations).</span></li><li class='c6 c9'><span class='c12'>Mortgage interest paid by you, acquisition or abandonment of secured property, cancellation of debt, qualified tuition program payments (under section 529), IRA, Coverdell ESA, Archer MSA or HSA contributions or distributions, and pension distributions.</span><span class='c1'>&nbsp;You must give your correct TIN, but you do not have to sign the certification.</span></li></ol><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>What Name and Number To Give the Requester</span></p><p class='c0'><span class='c5'></span></p><a id='t.843942785c9a2e1a87f46987ef4b9521632c39c8'></a><a id='t.1'></a><table class='c15'><tbody><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c13'><span class='c5'>For this type of account:</span></p></td><td class='c2' colspan='1' rowspan='1'><p class='c13'><span class='c5'>Give name and SSN of:</span></p></td></tr><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>Individual</span></p></td><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>The individual</span></p></td></tr><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>Two or more individuals (joint account)</span></p></td><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c4'>The actual owner of the account or, if combined funds, the first individual on the account</span><sup class='c4'><a href='#ftnt3' id='ftnt_ref3'>[3]</a></sup></p></td></tr><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>Custodian account of a minor (Uniform Gift to Minors Act)</span></p></td><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c4'>The minor</span><sup class='c4'><a href='#ftnt4' id='ftnt_ref4'>[4]</a></sup></p></td></tr><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>a. The usual revocable savings trust (grantor is also trustee) </span></p><p class='c8'><span class='c1'>b. So-called trust account that is not a legal or valid trust under state law</span></p></td><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c4'>The grantor-trustee</span><sup class='c4'><a href='#ftnt5' id='ftnt_ref5'>[5]</a></sup></p><p class='c8 c11'><span class='c1'></span></p><p class='c8'><span class='c4'>The actual owner</span><sup class='c4'><a href='#ftnt6' id='ftnt_ref6'>[6]</a></sup></p></td></tr><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>Sole proprietorship or disregarded entity owned by an individual</span></p></td><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c4'>The owner</span><sup class='c4'><a href='#ftnt7' id='ftnt_ref7'>[7]</a></sup></p></td></tr><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>Grantor trust filing under Optional Form 1099 Filing Method 1 (see Regulations section 1.671-4(b)(2)(i) (A))</span></p></td><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c4'>The grantor</span><sup class='c4'><a href='#ftnt8' id='ftnt_ref8'>[8]</a></sup></p></td></tr><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c13'><span class='c5'>For this type of account:</span></p></td><td class='c2' colspan='1' rowspan='1'><p class='c13'><span class='c5'>Give name and EIN of:</span></p></td></tr><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>Disregarded entity not owned by an individual</span></p></td><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>The owner</span></p></td></tr><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>A valid trust, estate, or pension trust</span></p></td><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c4'>Legal entity</span><sup class='c4'><a href='#ftnt9' id='ftnt_ref9'>[9]</a></sup></p></td></tr><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>Corporation or LLC electing corporate status on Form 8832 or Form 2553</span></p></td><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>The corporation</span></p></td></tr><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>Association, club, religious, charitable, educational, or other tax exempt organization</span></p></td><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>The organization</span></p></td></tr><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>Partnership or multi-member LLC</span></p></td><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>The partnership</span></p></td></tr><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>A broker or registered nominee</span></p></td><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>The broker or nominee</span></p></td></tr><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>Account with the Department of Agriculture in the name of a public entity (such as a state or local government, school district, or prison) that receives agricultural program payments</span></p></td><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>The public entity</span></p></td></tr><tr class='c3'><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>Grantor trust filing under the Form 1041 Filing Method or the Optional Form 1099 Filing Method 2 (see Regulations section 1.671-4(b)(2)(i) (B))</span></p></td><td class='c2' colspan='1' rowspan='1'><p class='c8'><span class='c1'>The trust</span></p></td></tr></tbody></table><p class='c0'><span class='c5'></span></p><p class='c6'><span class='c5'>Secure Your Tax Records from Identity Theft</span></p><p class='c0'><span class='c5'></span></p><p class='c6'><span class='c1'>Identity theft occurs when someone uses your personal information such as your name, SSN, or other identifying information, without your permission, to commit fraud or other crimes. An identity thief may use your SSN to get a job or may file a tax return using your SSN to receive a refund. </span></p><p class='c0'><span class='c5'></span></p><p class='c6'><span class='c1'>To reduce your risk:</span></p><p class='c0'><span class='c1'></span></p><ul class='c14 lst-kix_6qvonv1eysrr-0 start'><li class='c6 c9'><span class='c1'>Protect your SSN,</span></li><li class='c6 c9'><span class='c1'>Ensure your employer is protecting your SSN, and </span></li><li class='c6 c9'><span class='c1'>Be careful when choosing a tax preparer</span></li></ul><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>If your tax records are affected by identity theft and you receive a notice from the IRS, respond right away to the name and phone number printed on the IRS notice or letter.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>If your tax records are not currently affected by identity theft but you think you are at risk due to a lost or stolen purse or wallet, questionable credit card activity or credit report, contact the IRS Identity Theft Hotline at 1-800-908-4490 or submit Form 14039.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>For more information, see Publication 4535, Identity Theft Prevention and Victim Assistance.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>Victims of identity theft who are experiencing economic harm or a system problem, or are seeking help in resolving tax problems that have not been resolved through normal channels, may be eligible for Taxpayer Advocate Service (TAS) assistance. You can reach TAS by calling the TAS toll-free case intake line at 1-877-777-4778 or TTY/TDD 1-800-829-4059.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>Protect yourself from suspicious emails or phishing schemes.</span></p><p class='c0'><span class='c5'></span></p><p class='c6'><span class='c1'>Phishing is the creation and use of email and websites designed to mimic legitimate business emails and websites. The most common act is sending an email to a user falsely claiming to be an established legitimate enterprise in an attempt to scam the user into surrendering private information that will be used for identity theft.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>The IRS does not initiate contacts with taxpayers via emails. Also, the IRS does not request personal detailed information through email or ask taxpayers for the PIN numbers, passwords, or similar secret access information for their credit card, bank, or other financial accounts.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>If you receive an unsolicited email claiming to be from the IRS, forward this message to phishing@irs.gov. You may also report misuse of the IRS name, logo, or other IRS property to the Treasury Inspector General for Tax Administration (TIGTA) at 1-800-366-4484. You can forward suspicious emails to the Federal Trade Commission at: spam@uce.gov or contact them at www.ftc.gov/idtheft or 1-877-IDTHEFT (1-877-438-4338).</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c1'>Visit IRS.gov to learn more about identity theft and how to reduce your risk.</span></p><p class='c0'><span class='c1'></span></p><p class='c6'><span class='c5'>Privacy Act Notice</span></p><p class='c0'><span class='c5'></span></p><p class='c6'><span class='c1'>Section 6109 of the Internal Revenue Code requires you to provide your correct TIN to persons (including federal agencies) who are required to file information returns with the IRS to report interest, dividends, or certain other income paid to you; mortgage interest you paid; the acquisition or abandonment of secured property; the cancellation of debt; or contributions you made to an IRA, Archer MSA, or HSA. The person collecting this form uses the information on the form to file information returns with the IRS, reporting the above information. Routine uses of this information include giving it to the Department of Justice for civil and criminal litigation and to cities, states, the District of Columbia, and U.S. commonwealths and possessions for use in administering their laws. The information also may be disclosed to other countries under a treaty, to federal and state agencies to enforce civil and criminal laws, or to federal law enforcement and intelligence agencies to combat terrorism. You must provide your TIN whether or not you are required to file a tax return. Under section 3406, payers must generally withhold a percentage of taxable interest, dividend, and certain other payments to a payee who does not give a TIN to the payer. Certain penalties may also apply for providing false or fraudulent information.</span></p><p class='c0'><span class='c1'></span></p><hr class='c17'><div><p class='c8 c10'><a href='#ftnt_ref1' id='ftnt1'>[1]</a><span class='c7'>&nbsp;See Form 1099-MISC, Miscellaneous Income, and its instructions</span></p></div><div><p class='c8 c10'><a href='#ftnt_ref2' id='ftnt2'>[2]</a><span class='c7'>&nbsp;However, the following payments made to a corporation and reportable on Form 1099-MISC are not exempt from backup withholding: medical and health care payments, attorneys&#39; fees, gross proceeds paid to an attorney reportable under section 6045(f), and payments for services paid by a federal executive agency</span></p></div><div><p class='c8 c10'><a href='#ftnt_ref3' id='ftnt3'>[3]</a><span class='c7'>&nbsp;List first and circle the name of the person whose number you furnish. If only one person on a joint account has an SSN, that person&rsquo;s number must be furnished.</span></p></div><div><p class='c8 c10'><a href='#ftnt_ref4' id='ftnt4'>[4]</a><span class='c7'>&nbsp;Circle the minor&rsquo;s name and furnish the minor&rsquo;s SSN.</span></p></div><div><p class='c8 c10'><a href='#ftnt_ref5' id='ftnt5'>[5]</a><span class='c7'>&nbsp;List first and circle the name of the person whose number you furnish. If only one person on a joint account has an SSN, that person&rsquo;s number must be furnished.</span></p></div><div><p class='c8 c10'><a href='#ftnt_ref6' id='ftnt6'>[6]</a><span class='c7'>&nbsp;List first and circle the name of the person whose number you furnish. If only one person on a joint account has an SSN, that person&rsquo;s number must be furnished.</span></p></div><div><p class='c8 c10'><a href='#ftnt_ref7' id='ftnt7'>[7]</a><span class='c7'>&nbsp;You must show your individual name and you may also enter your business or DBA name on the &ldquo;Business name/disregarded entity&rdquo; name line. You may use either your SSN or EIN (if you have one), but the IRS encourages you to use your SSN.</span></p></div><div><p class='c8 c10'><a href='#ftnt_ref8' id='ftnt8'>[8]</a><span class='c18'>&nbsp;</span><span class='c18 c19'>Note.</span><span class='c7'>&nbsp;Grantor also must provide a Form W-9 to trustee of trust</span></p></div><div><p class='c8 c10'><a href='#ftnt_ref9' id='ftnt9'>[9]</a><span class='c7'>&nbsp;List first and circle the name of the trust, estate, or pension trust. (Do not furnish the TIN of the personal representative or trustee unless the legal entity itself is not designated in the account title.) Also see Special rules for partnerships on page 2.</span></p></div>"
+    },
+    "id": "w9",
+    "fields": [{
+        "type": "Hidden",
+        "id": "requesterInfo",
+        "dataRef": "requesterInfo"
+    }, {
+        "type": "SelectGroup",
+        "required": true,
+        "label": "What is your tax classification?",
+        "id": "entityTypeGroup",
+        "errors": {
+            "required": "Your tax classification is required",
+            "default": "Invalid"
+        },
+        "dataRef": "entityType",
+        "children": [{
+            "value": "individual",
+            "type": "Toggle",
+            "label": "Individual",
+            "id": "entityTypeIndiv",
+            "dataRef": "entityType"
+        }, {
+            "value": "business",
+            "type": "Toggle",
+            "label": "Business",
+            "id": "entityTypeBiz",
+            "dataRef": "entityType"
+        }]
+    }, {
+        "visible": "E|isBusiness",
+        "type": "SelectTree",
+        "id": "taxClassificationTree",
+        "children": [{
+            "visible": "E|isBusiness",
+            "type": "SelectGroup",
+            "required": "E|isBusiness",
+            "id": "taxClassificationGroup",
+            "errors": {
+                "required": "Your tax classification is required",
+                "default": "Invalid"
+            },
+            "dataRef": "taxClassification",
+            "children": [{
+                "value": "soleProprietor",
+                "type": "Toggle",
+                "label": "Sole Proprietor",
+                "id": "taxClassificationSP",
+                "dataRef": "taxClassification"
+            }, {
+                "value": "cCorp",
+                "type": "Toggle",
+                "label": "C Corporation",
+                "id": "taxClassificationCC",
+                "dataRef": "taxClassification"
+            }, {
+                "value": "sCorp",
+                "type": "Toggle",
+                "label": "S Corporation",
+                "id": "taxClassificationSC",
+                "dataRef": "taxClassification"
+            }, {
+                "value": "partnership",
+                "type": "Toggle",
+                "label": "Partnership",
+                "id": "taxClassificationP",
+                "dataRef": "taxClassification"
+            }, {
+                "value": "trustEstate",
+                "type": "Toggle",
+                "label": "Trust/Estate",
+                "id": "taxClassificationTE",
+                "dataRef": "taxClassification"
+            }, {
+                "value": "singleMemberLLC",
+                "type": "Toggle",
+                "label": "Single-member LLC",
+                "id": "taxClassificationSML",
+                "dataRef": "taxClassification"
+            }, {
+                "value": "llc",
+                "type": "Toggle",
+                "label": "LLC",
+                "id": "taxClassificationL",
+                "dataRef": "taxClassification"
+            }, {
+                "value": "other",
+                "type": "Toggle",
+                "label": "Other",
+                "id": "taxClassificationO",
+                "dataRef": "taxClassification"
+            }]
+        }, {
+            "visible": "E|isLLC",
+            "type": "SelectGroup",
+            "required": "E|isLLC",
+            "label": "Select the tax classification",
+            "id": "taxSubClassificationGroup",
+            "errors": {
+                "required": "Your tax classification is required",
+                "default": "Invalid"
+            },
+            "dataRef": "taxSubClassification",
+            "children": [{
+                "value": "cCorp",
+                "type": "Toggle",
+                "label": "C Corporation",
+                "id": "taxSubClassificationCC",
+                "dataRef": "taxSubClassification"
+            }, {
+                "value": "sCorp",
+                "type": "Toggle",
+                "label": "S Corporation",
+                "id": "taxSubClassificationSC",
+                "dataRef": "taxSubClassification"
+            }, {
+                "value": "partnership",
+                "type": "Toggle",
+                "label": "Partnership",
+                "id": "taxSubClassificationP",
+                "dataRef": "taxSubClassification"
+            }]
+        }]
+    }, {
+        "visible": "E|hasEntityType",
+        "type": "Group",
+        "id": "container",
+        "dataRef": "container",
+        "children": [{
+            "visible": "E|isIndividual || isSoleProprietor || isTrust || isSingleLLC",
+            "type": "TextInput",
+            "required": "E|isIndividual || isSoleProprietor || isTrust || isSingleLLC",
+            "placeholder": "Full name",
+            "label": "Full name",
+            "id": "fullName",
+            "errors": {
+                "required": "Your full name is required",
+                "lettersOnly": "Your name can only contain letters",
+                "default": "Invalid"
+            },
+            "dataRef": "fullName"
+        }, {
+            "visible": "E|isBusiness",
+            "type": "TextInput",
+            "required": "E|isBusiness",
+            "placeholder": "Business name",
+            "label": "E|if(isBusiness && ((isSoleProprietor || isSingleLLC || isTrust) != true), 'Business name <em>(as shown on the Entity&apos;s tax return)', 'Business name')</em>",
+            "id": "businessName",
+            "errors": {
+                "required": "Your business name is required",
+                "default": "Invalid"
+            },
+            "dataRef": "businessName"
+        }, {
+            "visible": "E|isBusiness && (isSoleProprietor || isSingleLLC || isTrust) != true",
+            "type": "TextInput",
+            "required": "E|isBusiness && (isSoleProprietor || isSingleLLC || isTrust) != true",
+            "placeholder": "Name",
+            "label": "Trade or DBA name",
+            "id": "tradeName",
+            "errors": {
+                "required": "Your trade/DBA name is required",
+                "default": "Invalid"
+            },
+            "dataRef": "tradeName"
+        }, {
+            "type": "AddressGroup",
+            "required": true,
+            "label": "Mailing address",
+            "id": "address",
+            "children": [{
+                "type": "TextInput",
+                "placeholder": "Street",
+                "id": "street",
+                "errors": {
+                    "required": "Your street address is required",
+                    "default": "Invalid"
+                },
+                "dataRef": "street"
+            }, {
+                "type": "TextInput",
+                "placeholder": "City",
+                "id": "city",
+                "errors": {
+                    "required": "Your city is required",
+                    "lettersOnly": "The city name can only contain letters",
+                    "default": "Invalid"
+                },
+                "dataRef": "city"
+            }, {
+                "type": "SelectList",
+                "placeholder": "State",
+                "options": {
+                    "TN": "TN",
+                    "ND": "ND",
+                    "OH": "OH",
+                    "AK": "AK",
+                    "CO": "CO",
+                    "FL": "FL",
+                    "MN": "MN",
+                    "OR": "OR",
+                    "ID": "ID",
+                    "PA": "PA",
+                    "MT": "MT",
+                    "AL": "AL",
+                    "HI": "HI",
+                    "CA": "CA",
+                    "WA": "WA",
+                    "MA": "MA",
+                    "RI": "RI",
+                    "MD": "MD",
+                    "WI": "WI",
+                    "NC": "NC",
+                    "IL": "IL",
+                    "MO": "MO",
+                    "UT": "UT",
+                    "DE": "DE",
+                    "IN": "IN",
+                    "MI": "MI",
+                    "DC": "DC",
+                    "ME": "ME",
+                    "WV": "WV",
+                    "NM": "NM",
+                    "MS": "MS",
+                    "KY": "KY",
+                    "OK": "OK",
+                    "NY": "NY",
+                    "NJ": "NJ",
+                    "NE": "NE",
+                    "KS": "KS",
+                    "TX": "TX",
+                    "SC": "SC",
+                    "NV": "NV",
+                    "LA": "LA",
+                    "AZ": "AZ",
+                    "CT": "CT",
+                    "VT": "VT",
+                    "SD": "SD",
+                    "NH": "NH",
+                    "AR": "AR",
+                    "WY": "WY",
+                    "GA": "GA",
+                    "IA": "IA",
+                    "VA": "VA"
+                },
+                "id": "state",
+                "errors": {
+                    "required": "Your state is required",
+                    "default": "Invalid"
+                },
+                "dataRef": "state"
+            }, {
+                "type": "TextInput",
+                "placeholder": "Zip",
+                "id": "zipcode",
+                "errors": {
+                    "required": "Your zip code is required",
+                    "default": "Invalid zip code"
+                },
+                "dataRef": "zipcode"
+            }]
+        }, {
+            "visible": "E|isIndividual || isSoleProprietor",
+            "type": "SSN",
+            "required": "E|isIndividual || isSoleProprietor",
+            "label": "Social security number / TIN",
+            "id": "ssn",
+            "errors": {
+                "required": "Your SSN is required",
+                "default": "Social security number must have 9 digits"
+            },
+            "dataRef": "ssn"
+        }, {
+            "visible": "E|isBusiness && isSoleProprietor != true",
+            "type": "EIN",
+            "required": "E|isBusiness && isSoleProprietor != true",
+            "label": "Employer Identification Number",
+            "id": "ein",
+            "errors": {
+                "default": "Employer ID number must be 9 digits"
+            },
+            "dataRef": "ein"
+        }, {
+            "visible": "E|isBusiness",
+            "type": "SelectGroup",
+            "label": "Exceptions",
+            "id": "exceptions",
+            "children": [{
+                "visible": "E|isBusiness",
+                "type": "SelectList",
+                "required": false,
+                "placeholder": "-",
+                "options": {
+                    "M": "M",
+                    "L": "L",
+                    "K": "K",
+                    "J": "J",
+                    "I": "I",
+                    "H": "H",
+                    "G": "G",
+                    "F": "F",
+                    "E": "E",
+                    "D": "D",
+                    "C": "C",
+                    "B": "B",
+                    "A": "A"
+                },
+                "label": "Exempt payee code",
+                "id": "payeeCode",
+                "dataRef": "payeeCode"
+            }, {
+                "visible": "E|isBusiness",
+                "type": "SelectList",
+                "required": false,
+                "placeholder": "-",
+                "options": {
+                    "9": "9",
+                    "8": "8",
+                    "7": "7",
+                    "6": "6",
+                    "5": "5",
+                    "4": "4",
+                    "3": "3",
+                    "2": "2",
+                    "13": "13",
+                    "12": "12",
+                    "11": "11",
+                    "10": "10",
+                    "1": "1",
+                    "0": "0"
+                },
+                "label": "Exemption from FATCA reporting code",
+                "id": "fatcaCode",
+                "dataRef": "fatcaCode"
+            }]
+        }, {
+            "type": "List",
+            "required": false,
+            "minSize": 1,
+            "maxSize": 2,
+            "label": "Account number(s) with the IRS",
+            "id": "accountNumbers",
+            "extendable": true,
+            "errors": {
+                "default": "Invalid"
+            },
+            "defaultSize": 1,
+            "dataRef": "accountNumbers"
+        }, {
+            "value": "<br/><b>Under penalties of perjury, I certify that:</b>",
+            "type": "Paragraph",
+            "id": "legalAgreementTitle"
+        }, {
+            "value": "1. The number shown on this form is my correct taxpayer identification number (or I am waiting for a number to be issued to me); and",
+            "type": "Paragraph",
+            "id": "legalAgreement1"
+        }, {
+            "value": "2. I am not subject to backup withholding because: (a) I am exempt from backup withholding, or (b) I have not been notified by the Internal Revenue Service (IRS) that I am subject to backup withholding as a result of a failure to report all interest or dividends, or (c) the IRS has notified me that I am no longer subject to backup withholding; and",
+            "type": "Paragraph",
+            "id": "legalAgreement2"
+        }, {
+            "value": "3. I am a U.S. citizen or other U.S. person (defined in instructions); and",
+            "type": "Paragraph",
+            "id": "legalAgreement3"
+        }, {
+            "value": "4. The FATCA code(s) entered on this form (if any) indicating that I am exempt from FATCA reporting is correct.<br/>",
+            "type": "Paragraph",
+            "id": "legalAgreement4"
+        }, {
+            "value": "Certification instructions. You must cross out item 2 above if you have been notified by the IRS that you are currently subject to backup withholding because you have failed to report all interest and dividends on your tax return. For real estate transactions, item 2 does not apply. For mortgage interest paid, acquisition or abandonment of secured property, cancellation of debt, contributions to an individual retirement arrangement (IRA), and generally, payments other than interest and dividends, you are not required to sign the certification, but you must provide your correct TIN.<br/>",
+            "type": "Paragraph",
+            "id": "instructions"
+        }, {
+            "type": "Signature",
+            "id": "signature",
+            "errors": {
+                "required": "Your signature is required",
+                "default": "Invalid"
+            },
+            "dataRef": "signature"
+        }]
+    }, {
+        "visible": "E|hasEntityType == false",
+        "value": "<br/>",
+        "type": "Paragraph",
+        "id": "space"
+    }]
+}

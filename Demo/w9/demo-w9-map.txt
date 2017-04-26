@@ -1,0 +1,185 @@
+line1
+  Text
+  value [@entityType, @taxClassification] do
+    ["business", "soleProprietor"] -> @fullName
+    ["business", "trustEstate"] -> @fullName
+    ["business", "singleMemberLLC"] -> @fullName
+    ["business", _] -> @businessName
+    _ -> @fullName
+  end
+  coords %{x: 0.97, y: 1.31, page: 1}
+
+line2
+  Text
+  value [@entityType, @taxClassification] do
+    ["business", "soleProprietor"] -> @businessName
+    ["business", "trustEstate"] -> @businessName
+    ["business", "singleMemberLLC"] -> @businessName
+    ["business", _] -> @tradeName
+    _ -> ""
+  end
+  coords %{x: 0.97, y: 1.62, page: 1}
+
+street_address
+  Text
+  value @street
+  coords %{x: 0.97, y: 2.99, page: 1}
+
+city_state_zip
+  Text
+  value "#{@city}, #{@state} #{@zipcode}"
+  coords %{x: 0.97, y: 3.31, page: 1}
+
+requester_info
+  Text
+  value @requesterInfo
+  coords %{x: 5.48, y: 3.0, page: 1}
+
+# NOTE: "ssn" uses a clear (but verbose) solution to the per-character placement issue
+# This is equivalent to the below coords command:
+#     i when i >= 0 and i <= 2 ->
+#       %{x: 5.86 + (i * 0.2), y: 4.2, page: 1}
+#     i when i >= 3 and i <= 4 ->
+#       %{x: 6.66 + ( (i - 3) * 0.2), y: 4.2, page: 1}
+#     i when i >= 5 ->
+#       %{x: 7.26 + ( (i - 5) * 0.2), y: 4.2, page: 1}
+ssn
+  Text
+  font_size 15
+  value [@entityType, @taxClassification] do
+    ["individual", _] -> @ssn
+    ["business", "soleProprietor"] -> @ssn
+    _ -> nil
+  end
+  split_by char
+  coords do
+    0 -> %{x: 5.86, y: 4.2, page: 1}
+    1 -> %{x: 6.06, y: 4.2, page: 1}
+    2 -> %{x: 6.26, y: 4.2, page: 1}
+    3 -> %{x: 6.66, y: 4.2, page: 1}
+    4 -> %{x: 6.86, y: 4.2, page: 1}
+    5 -> %{x: 7.26, y: 4.2, page: 1}
+    6 -> %{x: 7.46, y: 4.2, page: 1}
+    7 -> %{x: 7.66, y: 4.2, page: 1}
+    8 -> %{x: 7.86, y: 4.2, page: 1}
+  end
+
+# NOTE: "ein" is a more complex (but more concise) solution to the same per-character placement issue
+ein
+  Text
+  font_size 15
+  value [@entityType, @taxClassification] do
+    ["business", "soleProprietor"] -> nil
+    ["business", _] -> @ein
+    _ -> nil
+  end
+  split_by char
+  coords i do
+    i when i >= 0 and i <= 1 -> %{x: 5.86 + (i * 0.2), y: 4.85, page: 1}
+    i when i >= 2 -> %{x: 6.66 + ((i - 3) * 0.2), y: 4.85, page: 1}
+  end
+
+# NOTE: this assumes the date is coming in iso8601 format (e.g. 2016-06-21)
+date_signed
+  Text
+  value "#{format(:date, "now", "{M}/{D}/{YYYY}")}"
+  coords %{x: 5.67, y: 7.32, page: 1}
+
+individual
+  Checkmark
+  value [@entityType, @taxClassification] do
+    ["individual", _] -> true
+    ["business", "soleProprietor"] -> true
+    ["business", "singleMemberLLC"] -> true
+    _ -> false
+  end
+  coords %{x: 0.94, y: 1.99, page: 1}
+
+c_corp
+  Checkmark
+  value @entityType do
+    "business" -> @taxClassification === "cCorp"
+    _ -> false
+  end
+  coords %{x: 2.62, y: 1.99, page: 1}
+
+s_corp
+  Checkmark
+  value @entityType do
+    "business" -> @taxClassification === "sCorp"
+    _ -> false
+  end
+  coords %{x: 3.62, y: 1.99, page: 1}
+
+partnership
+  Checkmark
+  value @entityType do
+    "business" -> @taxClassification === "partnership"
+    _ -> false
+  end
+  coords %{x: 4.53, y: 1.99, page: 1}
+
+trust
+  Checkmark
+  value @entityType do
+    "business" -> @taxClassification === "trustEstate"
+    _ -> false
+  end
+  coords %{x: 5.52, y: 1.99, page: 1}
+
+llc
+  Checkmark
+  value @entityType do
+    "business" -> @taxClassification === "llc"
+    _ -> false
+  end
+  coords %{x: 0.94, y: 2.22, page: 1}
+
+other
+  Checkmark
+  value @entityType do
+    "business" -> @taxClassification === "other"
+    _ -> false
+  end
+  coords %{x: 0.94, y: 2.64, page: 1}
+
+llc_classification
+  Text
+  font_size 13
+  coords %{x: 5.73, y: 2.21, page: 1}
+  value [@entityType, @taxClassification, @taxSubClassification] do
+    ["individual", _, _] -> ""
+    [_, "llc", "sCorp"] -> "S"
+    [_, "llc", "cCorp"] -> "C"
+    [_, "llc", "partnership"] -> "P"
+    _ -> ""
+  end
+
+exempt_payee_code
+  Text
+  font_size 13
+  value @entityType do
+    "business" -> @payeeCode
+    _ -> ""
+  end
+  coords %{x: 7.58, y: 2.14, page: 1}
+
+exempt_fatca_code
+  Text
+  font_size 13
+  value @entityType do
+    "business" -> @fatcaCode
+    _ -> ""
+  end
+  coords %{x: 7.05, y: 2.45, page: 1}
+
+account_numbers
+  Text
+  font_size 13
+  value "#{format(:list, @accountNumbers, ", ")}"
+  coords %{x: 0.97, y: 3.63, page: 1}
+
+signature
+  Signature
+  value @signature
+  coords %{x: 1.9, y: 6.45, page: 1}

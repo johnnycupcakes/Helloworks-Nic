@@ -1,0 +1,99 @@
+{
+	"schema": {
+		"version": "1.0.1",
+		"type": "validation"
+	},
+	"macros": {
+		"lettersOnly": "regex('/^(\\s|\\.|,|-|[A-Za-zÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ])*$/')",
+		"lettersAndNumbersOnly": "regex('/^(\\s|\\.|,|-|[0-9A-Za-zÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ])*$/')",
+		"isTrust": "val(entityType) == 'business' && val(taxClassification) == 'trustEstate'",
+		"isSoleProprietor": "val(entityType) == 'business' && val(taxClassification) == 'soleProprietor'",
+		"isSingleLLC": "val(entityType) == 'business' && val(taxClassification) == 'singleMemberLLC'",
+		"isLLC": "val(entityType) == 'business' && val(taxClassification) == 'llc'",
+		"isIndividual": "val(entityType) == 'individual'",
+		"isBusiness": "val(entityType) == 'business'"
+	},
+	"id": "w9",
+	"fields": {
+		"zipcode": {
+			"validators": ["E|regex('/^\\d{5}(?:[-\\s]\\d{4})?$/')"],
+			"type": "string",
+			"required": true
+		},
+		"tradeName": {
+			"validators": ["E|lettersAndNumbersOnly"],
+			"type": "string",
+			"required": "E|isBusiness && (isSoleProprietor || isSingleLLC || isTrust) != true"
+		},
+		"taxSubClassification": {
+			"validators": [],
+			"type": "string",
+			"required": "E|isLLC"
+		},
+		"taxClassification": {
+			"validators": [],
+			"type": "string",
+			"required": "E|isBusiness"
+		},
+		"street": {
+			"validators": ["E|lettersAndNumbersOnly"],
+			"type": "string",
+			"required": true
+		},
+		"state": {
+			"validators": ["E|regex('/^[A-Z]{2}$/')"],
+			"type": "string",
+			"required": true
+		},
+		"ssn": {
+			"validators": ["E|regex('/^[0-9]{9}$/')"],
+			"type": "string",
+			"required": "E|isIndividual || isSoleProprietor"
+		},
+		"signature": {
+			"validators": [],
+			"type": "signature",
+			"required": true
+		},
+		"payeeCode": {
+			"validators": ["E|regex(/^[A-Z]$/)"],
+			"type": "string",
+			"required": false
+		},
+		"fullName": {
+			"validators": ["E|lettersOnly"],
+			"type": "string",
+			"required": "E|isIndividual || isSoleProprietor || isTrust || isSingleLLC"
+		},
+		"fatcaCode": {
+			"validators": ["E|regex('/^[0-9]{1,2}$/')"],
+			"type": "string",
+			"required": false
+		},
+		"entityType": {
+			"validators": [],
+			"type": "string",
+			"required": true
+		},
+		"ein": {
+			"validators": ["E|regex('/^[0-9]{9}$/')"],
+			"type": "string",
+			"required": "E|isBusiness && isSoleProprietor != true"
+		},
+		"city": {
+			"validators": ["E|lettersOnly"],
+			"type": "string",
+			"required": true
+		},
+		"businessName": {
+			"validators": ["E|lettersAndNumbersOnly"],
+			"type": "string",
+			"required": "E|isBusiness"
+		},
+		"accountNumbers": {
+			"validators": ["E|regex('/^[0-9]*$/')"],
+			"type": "string",
+			"required": false
+		}
+	}
+}

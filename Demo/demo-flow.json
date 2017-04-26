@@ -1,0 +1,23 @@
+{
+	"schema": {
+		"version": "1.0.1",
+		"type": "flow"
+	},
+	"mapping": {
+		"sample_agreement.zipcode": "E|val(w9.zipcode)",
+		"sample_agreement.street": "E|val(w9.street)",
+		"sample_agreement.state": "E|val(w9.state)",
+		"sample_agreement.fullName": "E|val(w9.fullName)",
+		"sample_agreement.city": "E|val(w9.city)",
+		"sample_agreement.agreementSignature": "E|val(w9.signature)"
+	},
+	"macros": {},
+	"id": "demo",
+	"forms": [{
+		"id": "w9",
+		"enabled": true
+	}, {
+		"id": "sample_agreement",
+		"enabled": true
+	}]
+}
